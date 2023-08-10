@@ -174,7 +174,8 @@ class InputMonitor(threading.Thread):
                         msg = {
                             "key": concat_multikeys(k.keycode) +
                             get_modifiers(),
-                            "devicePath": self.device.path
+                            "devicePath": self.device.path,
+                            "code": event.code,
                         }
                         msg_json = json.dumps(msg)
                         self.mqttclient.publish(self.topic, msg_json)
